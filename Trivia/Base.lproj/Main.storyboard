@@ -116,7 +116,7 @@
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstItem="UuO-Vx-YJV" firstAttribute="top" secondItem="L0R-Cc-lYP" secondAttribute="top" id="6gs-Yu-dpC"/>
-                                    <constraint firstAttribute="bottom" secondItem="VD4-Bh-kHS" secondAttribute="bottom" constant="50" id="Awj-OV-rhs">
+                                    <constraint firstAttribute="bottom" secondItem="VD4-Bh-kHS" secondAttribute="bottom" constant="5" id="Awj-OV-rhs">
                                         <variation key="heightClass=compact-widthClass=compact" constant="0.0"/>
                                         <variation key="heightClass=compact-widthClass=regular" constant="0.0"/>
                                     </constraint>
@@ -124,10 +124,11 @@
                                     <constraint firstItem="VD4-Bh-kHS" firstAttribute="width" secondItem="UuO-Vx-YJV" secondAttribute="height" multiplier="2:1.5" id="EiI-tJ-1KG"/>
                                     <constraint firstAttribute="trailing" secondItem="UuO-Vx-YJV" secondAttribute="trailing" constant="30" id="NPE-Fa-gU6"/>
                                     <constraint firstItem="UuO-Vx-YJV" firstAttribute="centerX" secondItem="L0R-Cc-lYP" secondAttribute="centerX" id="Rcw-7t-34r"/>
+                                    <constraint firstItem="VD4-Bh-kHS" firstAttribute="width" secondItem="UuO-Vx-YJV" secondAttribute="height" multiplier="2:1.5" id="Tvo-J8-rr2"/>
                                     <constraint firstItem="VD4-Bh-kHS" firstAttribute="top" secondItem="L0R-Cc-lYP" secondAttribute="top" id="Zrv-I6-OP1"/>
                                     <constraint firstItem="VD4-Bh-kHS" firstAttribute="leading" secondItem="L0R-Cc-lYP" secondAttribute="leading" id="bEl-44-isw"/>
                                     <constraint firstItem="VD4-Bh-kHS" firstAttribute="leading" secondItem="UuO-Vx-YJV" secondAttribute="trailing" id="c9j-Zy-cOp"/>
-                                    <constraint firstItem="VD4-Bh-kHS" firstAttribute="top" secondItem="UuO-Vx-YJV" secondAttribute="bottom" id="gmq-7Q-Kuc"/>
+                                    <constraint firstItem="VD4-Bh-kHS" firstAttribute="top" secondItem="UuO-Vx-YJV" secondAttribute="bottom" constant="20" id="gmq-7Q-Kuc"/>
                                     <constraint firstItem="UuO-Vx-YJV" firstAttribute="leading" secondItem="L0R-Cc-lYP" secondAttribute="leading" constant="30" id="iQg-WL-GG0"/>
                                     <constraint firstAttribute="bottom" secondItem="UuO-Vx-YJV" secondAttribute="bottom" id="pzy-Zb-pp1"/>
                                     <constraint firstAttribute="trailing" secondItem="VD4-Bh-kHS" secondAttribute="trailing" id="zUZ-TB-2T3"/>
@@ -136,6 +137,7 @@
                                     <mask key="constraints">
                                         <exclude reference="pzy-Zb-pp1"/>
                                         <exclude reference="EiI-tJ-1KG"/>
+                                        <exclude reference="Tvo-J8-rr2"/>
                                         <exclude reference="Zrv-I6-OP1"/>
                                         <exclude reference="c9j-Zy-cOp"/>
                                     </mask>
@@ -164,6 +166,11 @@
                                         <exclude reference="bEl-44-isw"/>
                                         <include reference="c9j-Zy-cOp"/>
                                         <exclude reference="gmq-7Q-Kuc"/>
+                                    </mask>
+                                </variation>
+                                <variation key="heightClass=regular-widthClass=compact">
+                                    <mask key="constraints">
+                                        <include reference="Tvo-J8-rr2"/>
                                     </mask>
                                 </variation>
                             </view>
