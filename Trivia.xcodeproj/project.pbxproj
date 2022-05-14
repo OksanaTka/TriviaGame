@@ -13,9 +13,16 @@
 		8A32BC582829AEDF003D86C0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8A32BC562829AEDF003D86C0 /* Main.storyboard */; };
 		8A32BC5A2829AEDF003D86C0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8A32BC592829AEDF003D86C0 /* Assets.xcassets */; };
 		8A32BC5D2829AEDF003D86C0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8A32BC5B2829AEDF003D86C0 /* LaunchScreen.storyboard */; };
+		8A9415292830126E00822F5B /* Dog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A9415282830126E00822F5B /* Dog.swift */; };
+		8AE03942282E8B6900FAD195 /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AE03941282E8B6900FAD195 /* Question.swift */; };
+		8AE03944282E8BDA00FAD195 /* QuizBrain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AE03943282E8BDA00FAD195 /* QuizBrain.swift */; };
+		8AE03946282E93E600FAD195 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8AE03945282E93E600FAD195 /* GoogleService-Info.plist */; };
+		CDD66088A427B689FDE515E3 /* Pods_Trivia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37A675D1D0B7DBCB1E337784 /* Pods_Trivia.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		37A675D1D0B7DBCB1E337784 /* Pods_Trivia.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Trivia.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7F60C8D0B75BB9668592E839 /* Pods-Trivia.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Trivia.release.xcconfig"; path = "Target Support Files/Pods-Trivia/Pods-Trivia.release.xcconfig"; sourceTree = "<group>"; };
 		8A32BC4D2829AEDF003D86C0 /* Trivia.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Trivia.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8A32BC502829AEDF003D86C0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8A32BC522829AEDF003D86C0 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -24,6 +31,11 @@
 		8A32BC592829AEDF003D86C0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8A32BC5C2829AEDF003D86C0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8A32BC5E2829AEDF003D86C0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8A9415282830126E00822F5B /* Dog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dog.swift; sourceTree = "<group>"; };
+		8AE03941282E8B6900FAD195 /* Question.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
+		8AE03943282E8BDA00FAD195 /* QuizBrain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizBrain.swift; sourceTree = "<group>"; };
+		8AE03945282E93E600FAD195 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		ECC5BE2147B2F225CF1A2AB0 /* Pods-Trivia.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Trivia.debug.xcconfig"; path = "Target Support Files/Pods-Trivia/Pods-Trivia.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,17 +43,29 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CDD66088A427B689FDE515E3 /* Pods_Trivia.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		416FAB2D60D5B16B11311810 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				ECC5BE2147B2F225CF1A2AB0 /* Pods-Trivia.debug.xcconfig */,
+				7F60C8D0B75BB9668592E839 /* Pods-Trivia.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		8A32BC442829AEDF003D86C0 = {
 			isa = PBXGroup;
 			children = (
 				8A32BC4F2829AEDF003D86C0 /* Trivia */,
 				8A32BC4E2829AEDF003D86C0 /* Products */,
+				416FAB2D60D5B16B11311810 /* Pods */,
+				C5286EE7411E9F1DF5F47522 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -56,15 +80,51 @@
 		8A32BC4F2829AEDF003D86C0 /* Trivia */ = {
 			isa = PBXGroup;
 			children = (
+				8AE0393E282E88C800FAD195 /* Model */,
+				8AE0393F282E88D300FAD195 /* Controller */,
+				8AE03940282E88F300FAD195 /* View */,
 				8A32BC502829AEDF003D86C0 /* AppDelegate.swift */,
 				8A32BC522829AEDF003D86C0 /* SceneDelegate.swift */,
-				8A32BC542829AEDF003D86C0 /* ViewController.swift */,
-				8A32BC562829AEDF003D86C0 /* Main.storyboard */,
 				8A32BC592829AEDF003D86C0 /* Assets.xcassets */,
 				8A32BC5B2829AEDF003D86C0 /* LaunchScreen.storyboard */,
 				8A32BC5E2829AEDF003D86C0 /* Info.plist */,
+				8AE03945282E93E600FAD195 /* GoogleService-Info.plist */,
 			);
 			path = Trivia;
+			sourceTree = "<group>";
+		};
+		8AE0393E282E88C800FAD195 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				8AE03941282E8B6900FAD195 /* Question.swift */,
+				8AE03943282E8BDA00FAD195 /* QuizBrain.swift */,
+				8A9415282830126E00822F5B /* Dog.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		8AE0393F282E88D300FAD195 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				8A32BC542829AEDF003D86C0 /* ViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		8AE03940282E88F300FAD195 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				8A32BC562829AEDF003D86C0 /* Main.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		C5286EE7411E9F1DF5F47522 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				37A675D1D0B7DBCB1E337784 /* Pods_Trivia.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -74,9 +134,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 8A32BC612829AEDF003D86C0 /* Build configuration list for PBXNativeTarget "Trivia" */;
 			buildPhases = (
+				B92580771D876CC80A108AB2 /* [CP] Check Pods Manifest.lock */,
 				8A32BC492829AEDF003D86C0 /* Sources */,
 				8A32BC4A2829AEDF003D86C0 /* Frameworks */,
 				8A32BC4B2829AEDF003D86C0 /* Resources */,
+				611FD305EF5F307E812EB5B5 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -111,6 +173,9 @@
 				Base,
 			);
 			mainGroup = 8A32BC442829AEDF003D86C0;
+			packageReferences = (
+				8AE03947282E948600FAD195 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+			);
 			productRefGroup = 8A32BC4E2829AEDF003D86C0 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -126,6 +191,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8A32BC5D2829AEDF003D86C0 /* LaunchScreen.storyboard in Resources */,
+				8AE03946282E93E600FAD195 /* GoogleService-Info.plist in Resources */,
 				8A32BC5A2829AEDF003D86C0 /* Assets.xcassets in Resources */,
 				8A32BC582829AEDF003D86C0 /* Main.storyboard in Resources */,
 			);
@@ -133,13 +199,58 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		611FD305EF5F307E812EB5B5 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Trivia/Pods-Trivia-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Trivia/Pods-Trivia-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Trivia/Pods-Trivia-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B92580771D876CC80A108AB2 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Trivia-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		8A32BC492829AEDF003D86C0 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8AE03944282E8BDA00FAD195 /* QuizBrain.swift in Sources */,
 				8A32BC552829AEDF003D86C0 /* ViewController.swift in Sources */,
+				8A9415292830126E00822F5B /* Dog.swift in Sources */,
 				8A32BC512829AEDF003D86C0 /* AppDelegate.swift in Sources */,
+				8AE03942282E8B6900FAD195 /* Question.swift in Sources */,
 				8A32BC532829AEDF003D86C0 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -282,6 +393,7 @@
 		};
 		8A32BC622829AEDF003D86C0 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = ECC5BE2147B2F225CF1A2AB0 /* Pods-Trivia.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -309,6 +421,7 @@
 		};
 		8A32BC632829AEDF003D86C0 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7F60C8D0B75BB9668592E839 /* Pods-Trivia.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -356,6 +469,17 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		8AE03947282E948600FAD195 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 9.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
 	};
 	rootObject = 8A32BC452829AEDF003D86C0 /* Project object */;
 }

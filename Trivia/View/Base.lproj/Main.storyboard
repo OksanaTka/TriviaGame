@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
-    <device id="retina3_5" orientation="landscape" appearance="light"/>
+    <device id="retina6_0" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -13,14 +13,14 @@
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Trivia" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="480" height="320"/>
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Background" translatesAutoresizingMaskIntoConstraints="NO" id="03o-qB-pMA">
-                                <rect key="frame" x="0.0" y="0.0" width="480" height="320"/>
+                                <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tuU-Ng-6PR">
-                                <rect key="frame" x="30" y="0.0" width="420" height="110"/>
+                                <rect key="frame" x="20" y="54" width="350" height="110"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="heart" translatesAutoresizingMaskIntoConstraints="NO" id="DEt-8U-myT">
                                         <rect key="frame" x="5" y="30" width="50" height="50"/>
@@ -40,7 +40,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="4/5" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qBi-oM-BtI">
-                                        <rect key="frame" x="360" y="40" width="50" height="30"/>
+                                        <rect key="frame" x="290" y="40" width="50" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="09g-Na-Hb7"/>
                                             <constraint firstAttribute="width" constant="50" id="0U0-NK-NxW"/>
@@ -50,13 +50,13 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="Bre-uN-yoW">
-                                        <rect key="frame" x="5" y="20" width="410" height="5"/>
+                                        <rect key="frame" x="5" y="20" width="340" height="5"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="5" id="Dql-C5-t34"/>
                                         </constraints>
                                     </progressView>
                                 </subviews>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="backgroundColor" red="0.90980392156862744" green="1" blue="1" alpha="0.41999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstItem="qBi-oM-BtI" firstAttribute="top" secondItem="Bre-uN-yoW" secondAttribute="bottom" constant="15" id="Cer-Hu-OPF"/>
                                     <constraint firstItem="qBi-oM-BtI" firstAttribute="centerY" secondItem="tuU-Ng-6PR" secondAttribute="centerY" id="DGM-wW-R7b"/>
@@ -72,48 +72,68 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="L0R-Cc-lYP">
-                                <rect key="frame" x="20" y="110" width="440" height="190"/>
+                                <rect key="frame" x="20" y="164" width="350" height="626"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="003-boxer" translatesAutoresizingMaskIntoConstraints="NO" id="UuO-Vx-YJV">
-                                        <rect key="frame" x="30" y="0.0" width="156.5" height="190"/>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="003-boxer" translatesAutoresizingMaskIntoConstraints="NO" id="UuO-Vx-YJV">
+                                        <rect key="frame" x="30" y="0.0" width="290" height="262.66666666666669"/>
                                     </imageView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="VD4-Bh-kHS">
-                                        <rect key="frame" x="186.5" y="0.0" width="253.5" height="190"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="VD4-Bh-kHS">
+                                        <rect key="frame" x="0.0" y="282.66666666666674" width="350" height="338.33333333333326"/>
                                         <subviews>
-                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="KBo-Cj-Vuj">
-                                                <rect key="frame" x="0.0" y="0.0" width="253.5" height="92.5"/>
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="bottom" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="KBo-Cj-Vuj">
+                                                <rect key="frame" x="5" y="0.0" width="340" height="154"/>
                                                 <subviews>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cUk-1N-Rcr">
-                                                        <rect key="frame" x="0.0" y="0.0" width="124.5" height="92.5"/>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="05l-Zl-HGO">
+                                                        <rect key="frame" x="0.0" y="122.99999999999994" width="167.66666666666666" height="31"/>
+                                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                         <state key="normal" title="Button"/>
-                                                        <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                                                        <buttonConfiguration key="configuration" style="filled" title="Choice 1"/>
+                                                        <connections>
+                                                            <action selector="onClickAnswer:" destination="BYZ-38-t0r" eventType="touchUpInside" id="hBB-kA-12C"/>
+                                                        </connections>
                                                     </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HoE-FA-d4E">
-                                                        <rect key="frame" x="129.5" y="0.0" width="124" height="92.5"/>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4NP-dS-p9G">
+                                                        <rect key="frame" x="172.66666666666663" y="122.99999999999994" width="167.33333333333337" height="31"/>
+                                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                         <state key="normal" title="Button"/>
-                                                        <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                                                        <buttonConfiguration key="configuration" style="filled" title="Choice 2"/>
+                                                        <connections>
+                                                            <action selector="onClickAnswer:" destination="BYZ-38-t0r" eventType="touchUpInside" id="QFl-kD-lKr"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                             </stackView>
-                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="wra-UA-1Ze">
-                                                <rect key="frame" x="0.0" y="97.5" width="253.5" height="92.5"/>
+                                            <stackView opaque="NO" contentMode="scaleToFill" alignment="top" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="wra-UA-1Ze">
+                                                <rect key="frame" x="5" y="183.99999999999994" width="340" height="154.33333333333331"/>
                                                 <subviews>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OX8-g6-ngW">
-                                                        <rect key="frame" x="0.0" y="0.0" width="124.5" height="92.5"/>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FSy-p9-O4S">
+                                                        <rect key="frame" x="0.0" y="0.0" width="167.66666666666666" height="31"/>
+                                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                         <state key="normal" title="Button"/>
-                                                        <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                                                        <buttonConfiguration key="configuration" style="filled" title="Choice 3"/>
+                                                        <connections>
+                                                            <action selector="onClickAnswer:" destination="BYZ-38-t0r" eventType="touchUpInside" id="V9X-aL-yxS"/>
+                                                        </connections>
                                                     </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PBg-I7-D55">
-                                                        <rect key="frame" x="129.5" y="0.0" width="124" height="92.5"/>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5HE-kz-iRG">
+                                                        <rect key="frame" x="172.66666666666663" y="0.0" width="167.33333333333337" height="31"/>
+                                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                         <state key="normal" title="Button"/>
-                                                        <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                                                        <buttonConfiguration key="configuration" style="filled" title="Choice 4"/>
+                                                        <connections>
+                                                            <action selector="onClickAnswer:" destination="BYZ-38-t0r" eventType="touchUpInside" id="8lA-I3-8mt"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                             </stackView>
                                         </subviews>
+                                        <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="KBo-Cj-Vuj" secondAttribute="trailing" constant="5" id="FUK-8u-Q0X"/>
+                                            <constraint firstAttribute="trailing" secondItem="wra-UA-1Ze" secondAttribute="trailing" constant="5" id="ntN-qx-eoP"/>
+                                        </constraints>
                                     </stackView>
                                 </subviews>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="backgroundColor" red="0.90980392156862744" green="1" blue="1" alpha="0.41999999999999998" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstItem="UuO-Vx-YJV" firstAttribute="top" secondItem="L0R-Cc-lYP" secondAttribute="top" id="6gs-Yu-dpC"/>
                                     <constraint firstAttribute="bottom" secondItem="VD4-Bh-kHS" secondAttribute="bottom" constant="5" id="Awj-OV-rhs">
@@ -181,14 +201,14 @@
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="L0R-Cc-lYP" secondAttribute="bottom" constant="20" id="3RD-IH-VqD"/>
                             <constraint firstAttribute="bottom" secondItem="03o-qB-pMA" secondAttribute="bottom" id="4q9-q3-5BR"/>
                             <constraint firstItem="L0R-Cc-lYP" firstAttribute="top" secondItem="tuU-Ng-6PR" secondAttribute="bottom" id="4wY-ga-h1v"/>
-                            <constraint firstAttribute="trailing" secondItem="tuU-Ng-6PR" secondAttribute="trailing" constant="30" id="5sw-oE-TXG"/>
+                            <constraint firstAttribute="trailing" secondItem="tuU-Ng-6PR" secondAttribute="trailing" constant="20" id="5sw-oE-TXG"/>
                             <constraint firstItem="L0R-Cc-lYP" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="7wv-9e-iiq"/>
                             <constraint firstItem="03o-qB-pMA" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="7zW-HX-xai"/>
                             <constraint firstItem="L0R-Cc-lYP" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="eEB-ee-cl1"/>
                             <constraint firstItem="03o-qB-pMA" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="lmY-2V-Ir5"/>
                             <constraint firstAttribute="trailing" secondItem="L0R-Cc-lYP" secondAttribute="trailing" constant="20" id="n4h-J5-mgf"/>
-                            <constraint firstItem="tuU-Ng-6PR" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="30" id="rPj-Z9-uyD"/>
-                            <constraint firstItem="tuU-Ng-6PR" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="y99-H4-nmx"/>
+                            <constraint firstItem="tuU-Ng-6PR" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="rPj-Z9-uyD"/>
+                            <constraint firstItem="tuU-Ng-6PR" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="10" id="y99-H4-nmx"/>
                             <constraint firstAttribute="trailing" secondItem="03o-qB-pMA" secondAttribute="trailing" id="yZn-AJ-xB9"/>
                         </constraints>
                         <variation key="heightClass=compact-widthClass=compact">
@@ -202,6 +222,16 @@
                             </mask>
                         </variation>
                     </view>
+                    <connections>
+                        <outlet property="main_BTN_choice1" destination="05l-Zl-HGO" id="MJY-eF-YYl"/>
+                        <outlet property="main_BTN_choice2" destination="4NP-dS-p9G" id="bUk-cM-rqu"/>
+                        <outlet property="main_BTN_choice3" destination="FSy-p9-O4S" id="cet-j2-32S"/>
+                        <outlet property="main_BTN_choice4" destination="5HE-kz-iRG" id="Qet-FZ-upN"/>
+                        <outlet property="main_IMG_image" destination="UuO-Vx-YJV" id="0GM-RJ-S1q"/>
+                        <outlet property="main_LBL_games" destination="qBi-oM-BtI" id="IQt-z4-AJo"/>
+                        <outlet property="main_LBL_life" destination="efk-QL-OnV" id="hhk-P2-NbU"/>
+                        <outlet property="main_PB_progress" destination="Bre-uN-yoW" id="Biw-D1-Myp"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -210,7 +240,7 @@
     </scenes>
     <resources>
         <image name="003-boxer" width="512" height="512"/>
-        <image name="Background" width="564" height="1002"/>
+        <image name="Background" width="1024" height="1024"/>
         <image name="heart" width="512" height="512"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
