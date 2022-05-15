@@ -24,6 +24,9 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        main_PB_progress.progress = 0.0
+        editTextGamesNumber()
+        
         initImageBorder()
         // initQuestions()
         
@@ -31,30 +34,52 @@ class ViewController: UIViewController {
         
     }
     
+    func editTextGamesNumber(){
+        self.main_LBL_games.text = "\(self.quizBrain.getCurrentGameNumber())/\(self.quizBrain.getTotalGamesNumber())"
+    }
+    func updateGameProgress(){
+        main_PB_progress.progress = quizBrain.getGameProgress()
+    }
+    
+    func buttonsClickable(_ status : Bool){
+       main_BTN_choice1.isEnabled = status
+        main_BTN_choice2.isEnabled = status
+        main_BTN_choice3.isEnabled = status
+        main_BTN_choice4.isEnabled = status
+
+    }
     
     @IBAction func onClickAnswer(_ sender: UIButton) {
         let userAnswer = sender.currentTitle
 
         print("userAnswer: \(String(describing: userAnswer)) rightAnswer: \(self.quizBrain.question.rightAnswer)")
-        if(userAnswer == self.quizBrain.question.rightAnswer){
-            sender.tintColor = #colorLiteral(red: 0.3411764801, green: 0.6235294342, blue: 0.1686274558, alpha: 1)
-            print("---> rignt")
-        }
-        else{
-            sender.tintColor = #colorLiteral(red: 0.7450980544, green: 0.1568627506, blue: 0.07450980693, alpha: 1)
-            print("---> wrong")
-        }
-        
-        timer.invalidate()
-       timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: false) { (timer) in
-            sender.tintColor = #colorLiteral(red: 0.1215686277, green: 0.01176470611, blue: 0.4235294163, alpha: 1)
-           self.initTriviaView()
-           
+        if self.quizBrain.playGame(){
+            if(userAnswer == self.quizBrain.question.rightAnswer){
+                sender.tintColor = #colorLiteral(red: 0.3411764801, green: 0.6235294342, blue: 0.1686274558, alpha: 1)
+                print("---> rignt")
             }
+            else{
+                sender.tintColor = #colorLiteral(red: 0.7450980544, green: 0.1568627506, blue: 0.07450980693, alpha: 1)
+                print("---> wrong")
+            }
+           // self.buttonsClickable(false)
+            timer.invalidate()
+            timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: false) { (timer) in
+              //  self.buttonsClickable(true)
+                sender.tintColor = #colorLiteral(red: 0.1215686277, green: 0.01176470611, blue: 0.4235294163, alpha: 1)
+                self.updateGameProgress()
+                self.editTextGamesNumber()
+                self.initTriviaView()
+                
+                
+                
+            }
+        }else{
+           // self.updateGameProgress()
+          //  self.editTextGamesNumber()
+            timer.invalidate()
+        }
 
-        // sender.tintColor = UIColor.blue
-        
-        // initTriviaView()
     }
 
     

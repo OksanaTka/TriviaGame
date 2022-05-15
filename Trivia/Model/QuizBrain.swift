@@ -64,6 +64,25 @@ struct QuizBrian {
         return currentDog!.url
     }
     
+    func getTotalGamesNumber() -> Int{
+        return dogList.count
+        
+    }
+    func getCurrentGameNumber() -> Int{
+        let gameNumber = nextQuestionIndex+1
+        return gameNumber
+    }
+    
+    func playGame() ->Bool{
+        let gameNumber = nextQuestionIndex+1
+        return gameNumber < dogList.count
+    }
+    
+    func getGameProgress() -> Float{
+        let gameNumber = nextQuestionIndex+1
+        return Float(gameNumber) / Float(dogList.count)
+    }
+    
    mutating func getNextQuestion() -> Question{
        question.answers = []
         setNextQuestion()
