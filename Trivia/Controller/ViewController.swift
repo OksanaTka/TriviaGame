@@ -25,7 +25,8 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         
         main_PB_progress.progress = 0.0
-        editTextGamesNumber()
+        //scale progressbar
+        main_PB_progress.transform = main_PB_progress.transform.scaledBy(x: 1, y: 4)
         
         initImageBorder()
         // initQuestions()
@@ -66,15 +67,22 @@ class ViewController: UIViewController {
             timer.invalidate()
             timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: false) { (timer) in
               //  self.buttonsClickable(true)
-                sender.tintColor = #colorLiteral(red: 0.1215686277, green: 0.01176470611, blue: 0.4235294163, alpha: 1)
+                //sender.tintColor = #colorLiteral(red: 0.1215686277, green: 0.01176470611, blue: 0.4235294163, alpha: 1)
+                sender.tintColor = UIColor(named: "ProgressBarColor")
                 self.updateGameProgress()
+                
+                if(self.quizBrain.getCurrentGameNumber() <=  self.quizBrain.getTotalGamesNumber()){
                 self.editTextGamesNumber()
                 self.initTriviaView()
-                
-                
-                
+                }else{
+                    timer.invalidate()
+                }
+                    
             }
         }else{
+            self.updateGameProgress()
+           // self.editTextGamesNumber()
+            print("------> end GMAME \(quizBrain.dogList[9])")
            // self.updateGameProgress()
           //  self.editTextGamesNumber()
             timer.invalidate()
@@ -93,8 +101,9 @@ class ViewController: UIViewController {
                     self.quizBrain.setDogsData(firebaseData: document.data())
                     
                 }
-                
+                self.editTextGamesNumber()
                 self.initTriviaView()
+                
             }
         }
         

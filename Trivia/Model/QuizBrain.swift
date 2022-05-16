@@ -74,12 +74,13 @@ struct QuizBrian {
     }
     
     func playGame() ->Bool{
-        let gameNumber = nextQuestionIndex+1
-        return gameNumber < dogList.count
+        let gameNumber = nextQuestionIndex
+        print("\(gameNumber) < \(dogList.count)")
+        return gameNumber <= dogList.count
     }
     
     func getGameProgress() -> Float{
-        let gameNumber = nextQuestionIndex+1
+        let gameNumber = nextQuestionIndex
         return Float(gameNumber) / Float(dogList.count)
     }
     
