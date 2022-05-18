@@ -15,8 +15,14 @@ struct QuizBrian {
     var dogNameList : [String] = []
     var question = Question()
     var nextQuestionIndex = 0
+    var player = Player()
+    let max_life = 3
+    var gameOver =  false
     
-
+    
+    init() {
+        player.life = max_life
+    }
     
     
     //random numbers
@@ -44,7 +50,6 @@ struct QuizBrian {
     mutating func setNextQuestion(){
         currentDog = dogList[nextQuestionIndex]
         question.rightAnswer = currentDog!.name
-        print("---> right answer: \(question.rightAnswer)")
         question.answers.append(question.rightAnswer)
         
         for _ in 1...3{
@@ -53,15 +58,33 @@ struct QuizBrian {
                 rand = getRandomNumber(maxNumber: dogList.count)
             }
             
-            print("---> add answer: \(dogList[rand].name)")
             question.answers.append(dogList[rand].name)
         }
         question.answers.shuffle()
         nextQuestionIndex+=1
     }
+    mutating func calcScore(){
+        player.score += 1
+    }
+    
+    func getPlayerLife() -> Int{
+        return player.life
+    }
+    
+    mutating func calcLife() {
+        player.life -= 1
+        if(player.life == 0){
+            gameOver = true
+        }
+    }
+    
     
     func getCurrentDogUrl() -> URL{
         return currentDog!.url
+    }
+    
+    func getPlayerScore() -> Int{
+        return player.score
     }
     
     func getTotalGamesNumber() -> Int{
@@ -76,7 +99,11 @@ struct QuizBrian {
     func playGame() ->Bool{
         let gameNumber = nextQuestionIndex
         print("\(gameNumber) < \(dogList.count)")
-        return gameNumber <= dogList.count
+        return gameNumber < dogList.count && player.life > 0
+    }
+    
+    func getGameOver() -> Bool{
+        return gameOver
     }
     
     func getGameProgress() -> Float{
@@ -84,8 +111,8 @@ struct QuizBrian {
         return Float(gameNumber) / Float(dogList.count)
     }
     
-   mutating func getNextQuestion() -> Question{
-       question.answers = []
+    mutating func getNextQuestion() -> Question{
+        question.answers = []
         setNextQuestion()
         return question
     }

@@ -4,7 +4,7 @@ import UIKit
 import FirebaseFirestore
 import FirebaseCore
 
-class ViewController: UIViewController {
+class GameViewController: UIViewController {
     
     @IBOutlet weak var main_PB_progress: UIProgressView!
     @IBOutlet weak var main_LBL_games: UILabel!
@@ -18,7 +18,6 @@ class ViewController: UIViewController {
     
     var quizBrain = QuizBrian()
     var timer = Timer()
-    
     let db = Firestore.firestore()
     
     override func viewDidLoad() {
@@ -27,12 +26,14 @@ class ViewController: UIViewController {
         main_PB_progress.progress = 0.0
         //scale progressbar
         main_PB_progress.transform = main_PB_progress.transform.scaledBy(x: 1, y: 4)
-        
         initImageBorder()
         // initQuestions()
         
         getDogsListFromFirestore()
         
+    }
+    func goToResultController(){
+        self.performSegue(withIdentifier: "goToResult", sender: self)
     }
     
     func editTextGamesNumber(){
@@ -52,42 +53,37 @@ class ViewController: UIViewController {
     
     @IBAction func onClickAnswer(_ sender: UIButton) {
         let userAnswer = sender.currentTitle
-
-        print("userAnswer: \(String(describing: userAnswer)) rightAnswer: \(self.quizBrain.question.rightAnswer)")
-        if self.quizBrain.playGame(){
+        timer.invalidate()
+    
+        
             if(userAnswer == self.quizBrain.question.rightAnswer){
                 sender.tintColor = #colorLiteral(red: 0.3411764801, green: 0.6235294342, blue: 0.1686274558, alpha: 1)
-                print("---> rignt")
+                quizBrain.calcScore()
             }
             else{
                 sender.tintColor = #colorLiteral(red: 0.7450980544, green: 0.1568627506, blue: 0.07450980693, alpha: 1)
-                print("---> wrong")
+                quizBrain.calcLife()
+                main_LBL_life.text = "x\(quizBrain.getPlayerLife())"
             }
+            
            // self.buttonsClickable(false)
-            timer.invalidate()
+            
+        if self.quizBrain.playGame(){
             timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: false) { (timer) in
-              //  self.buttonsClickable(true)
-                //sender.tintColor = #colorLiteral(red: 0.1215686277, green: 0.01176470611, blue: 0.4235294163, alpha: 1)
+                //  self.buttonsClickable(true)
+                
                 sender.tintColor = UIColor(named: "ProgressBarColor")
                 self.updateGameProgress()
-                
-                if(self.quizBrain.getCurrentGameNumber() <=  self.quizBrain.getTotalGamesNumber()){
                 self.editTextGamesNumber()
                 self.initTriviaView()
-                }else{
-                    timer.invalidate()
-                }
-                    
             }
         }else{
-            self.updateGameProgress()
-           // self.editTextGamesNumber()
-            print("------> end GMAME \(quizBrain.dogList[9])")
-           // self.updateGameProgress()
-          //  self.editTextGamesNumber()
+            timer.invalidate()
+            updateGameProgress()
+            goToResultController()
             timer.invalidate()
         }
-
+        
     }
 
     
@@ -128,20 +124,7 @@ class ViewController: UIViewController {
         main_BTN_choice4.setTitle(question.answers[3], for: .normal)
         
         let url = quizBrain.getCurrentDogUrl()
-        print("---> image: \(url)")
-        
-        DispatchQueue.global().async {
-            // Fetch Image Data
-            if let data = try? Data(contentsOf: url) {
-                DispatchQueue.main.async {
-                    // Create Image and Update Image View
-                    self.main_IMG_image.image = UIImage(data: data)
-                }
-            }
-        }
-        
-        
-        
+        main_IMG_image.imageFrom(url: url)
     }
     
     
@@ -150,12 +133,17 @@ class ViewController: UIViewController {
         // Add a new document with a generated ID
         var ref: DocumentReference? = nil
         ref = db.collection("dogs").addDocument(data: [
-            "Shepherd": "https://raw.githubusercontent.com/OksanaTka/TriviaGame/main/Images/Shepherd.jpg",
+            "Cane Corsos": "https://raw.githubusercontent.com/OksanaTka/TriviaGame/main/Images/Cane%20Corsos.jpg",
+            "Australian Shepherds": "https://raw.githubusercontent.com/OksanaTka/TriviaGame/main/Images/Australian%20shepherds.jpg",
+            "Basset Hounds": "https://raw.githubusercontent.com/OksanaTka/TriviaGame/main/Images/Basset%20Hounds.jpg",
+            "Bulldogs": "https://raw.githubusercontent.com/OksanaTka/TriviaGame/main/Images/Bulldogs.jpg",
+            "German Shepherd": "https://raw.githubusercontent.com/OksanaTka/TriviaGame/main/Images/German%20Shepherd.jpg",
+            "Golden Retrievers": "https://raw.githubusercontent.com/OksanaTka/TriviaGame/main/Images/Golden%20Retrievers.jpg",
+            "Great Dane": "https://raw.githubusercontent.com/OksanaTka/TriviaGame/main/Images/Great%20Dane.jpg",
+            "Malinois": "https://raw.githubusercontent.com/OksanaTka/TriviaGame/main/Images/Malinois.jpg",
             "Rottweiler": "https://raw.githubusercontent.com/OksanaTka/TriviaGame/main/Images/Rottweiler.jpg",
-            "Bulldog": "https://raw.githubusercontent.com/OksanaTka/TriviaGame/main/Images/Bulldog.jpg",
             "Cocker Spaniel": "https://raw.githubusercontent.com/OksanaTka/TriviaGame/main/Images/Cocker%20Spaniel.jpg",
             "Corgis": "https://raw.githubusercontent.com/OksanaTka/TriviaGame/main/Images/Corgis.jpg",
-            "Dackel": "https://raw.githubusercontent.com/OksanaTka/TriviaGame/main/Images/Dackel.jpg",
             "Husky": "https://raw.githubusercontent.com/OksanaTka/TriviaGame/main/Images/Husky.jpg",
             "Labrador": "https://raw.githubusercontent.com/OksanaTka/TriviaGame/main/Images/Labrador.jpg",
             "Poodle": "https://raw.githubusercontent.com/OksanaTka/TriviaGame/main/Images/Poodle.jpg",
@@ -170,6 +158,14 @@ class ViewController: UIViewController {
         
         
         
+    }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "goToResult"{
+            let destinationVC = segue.destination as! ResultViewController
+            destinationVC.scoreValue = self.quizBrain.getPlayerScore()
+            destinationVC.totalGamesNumber = self.quizBrain.getTotalGamesNumber()
+            destinationVC.gameOver = self.quizBrain.getGameOver()
+        }
     }
     
     
@@ -188,3 +184,4 @@ extension UIImageView{
         }
     }
 }
+
