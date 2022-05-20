@@ -6,14 +6,14 @@ import FirebaseCore
 
 class GameViewController: UIViewController {
     
-    @IBOutlet weak var main_PB_progress: UIProgressView!
-    @IBOutlet weak var main_LBL_games: UILabel!
-    @IBOutlet weak var main_LBL_life: UILabel!
-    @IBOutlet weak var main_IMG_image: UIImageView!
-    @IBOutlet weak var main_BTN_choice4: UIButton!
-    @IBOutlet weak var main_BTN_choice3: UIButton!
-    @IBOutlet weak var main_BTN_choice2: UIButton!
-    @IBOutlet weak var main_BTN_choice1: UIButton!
+    @IBOutlet weak var game_PB_progress: UIProgressView!
+    @IBOutlet weak var game_LBL_games: UILabel!
+    @IBOutlet weak var game_LBL_life: UILabel!
+    @IBOutlet weak var game_IMG_image: UIImageView!
+    @IBOutlet weak var game_BTN_choice4: UIButton!
+    @IBOutlet weak var game_BTN_choice3: UIButton!
+    @IBOutlet weak var game_BTN_choice2: UIButton!
+    @IBOutlet weak var game_BTN_choice1: UIButton!
     
     
     var quizBrain = QuizBrian()
@@ -23,9 +23,9 @@ class GameViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        main_PB_progress.progress = 0.0
+        game_PB_progress.progress = 0.0
         //scale progressbar
-        main_PB_progress.transform = main_PB_progress.transform.scaledBy(x: 1, y: 4)
+        game_PB_progress.transform = game_PB_progress.transform.scaledBy(x: 1, y: 4)
         initImageBorder()
         // initQuestions()
         
@@ -37,17 +37,17 @@ class GameViewController: UIViewController {
     }
     
     func editTextGamesNumber(){
-        self.main_LBL_games.text = "\(self.quizBrain.getCurrentGameNumber())/\(self.quizBrain.getTotalGamesNumber())"
+        self.game_LBL_games.text = "\(self.quizBrain.getCurrentGameNumber())/\(self.quizBrain.getTotalGamesNumber())"
     }
     func updateGameProgress(){
-        main_PB_progress.progress = quizBrain.getGameProgress()
+        game_PB_progress.progress = quizBrain.getGameProgress()
     }
     
     func buttonsClickable(_ status : Bool){
-       main_BTN_choice1.isEnabled = status
-        main_BTN_choice2.isEnabled = status
-        main_BTN_choice3.isEnabled = status
-        main_BTN_choice4.isEnabled = status
+       game_BTN_choice1.isEnabled = status
+        game_BTN_choice2.isEnabled = status
+        game_BTN_choice3.isEnabled = status
+        game_BTN_choice4.isEnabled = status
 
     }
     
@@ -63,7 +63,7 @@ class GameViewController: UIViewController {
             else{
                 sender.tintColor = #colorLiteral(red: 0.7450980544, green: 0.1568627506, blue: 0.07450980693, alpha: 1)
                 quizBrain.calcLife()
-                main_LBL_life.text = "x\(quizBrain.getPlayerLife())"
+                game_LBL_life.text = "x\(quizBrain.getPlayerLife())"
             }
             
            // self.buttonsClickable(false)
@@ -107,10 +107,10 @@ class GameViewController: UIViewController {
     
     
     func initImageBorder(){
-        main_IMG_image.layer.masksToBounds = true
-        main_IMG_image.layer.borderWidth = 3
-        main_IMG_image.layer.borderColor = UIColor.white.cgColor
-        main_IMG_image.layer.cornerRadius = main_IMG_image.bounds.width / 3.5
+        game_IMG_image.layer.masksToBounds = true
+        game_IMG_image.layer.borderWidth = 3
+        game_IMG_image.layer.borderColor = UIColor.white.cgColor
+        game_IMG_image.layer.cornerRadius = game_IMG_image.bounds.width / 3.5
     }
     
     
@@ -118,13 +118,13 @@ class GameViewController: UIViewController {
     func initTriviaView(){
         let question = quizBrain.getNextQuestion()
         
-        main_BTN_choice1.setTitle(question.answers[0], for: .normal)
-        main_BTN_choice2.setTitle(question.answers[1], for: .normal)
-        main_BTN_choice3.setTitle(question.answers[2], for: .normal)
-        main_BTN_choice4.setTitle(question.answers[3], for: .normal)
+        game_BTN_choice1.setTitle(question.answers[0], for: .normal)
+        game_BTN_choice2.setTitle(question.answers[1], for: .normal)
+        game_BTN_choice3.setTitle(question.answers[2], for: .normal)
+        game_BTN_choice4.setTitle(question.answers[3], for: .normal)
         
         let url = quizBrain.getCurrentDogUrl()
-        main_IMG_image.imageFrom(url: url)
+        game_IMG_image.imageFrom(url: url)
     }
     
     
