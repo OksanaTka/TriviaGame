@@ -6,26 +6,33 @@
 //
 
 import UIKit
+import FirebaseCore
+import FirebaseFirestore
 
 class StartViewController: UIViewController {
-
+    let db = Firestore.firestore()
+    
+    @IBOutlet weak var start_LBL_score: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        getLastScore()
         
     }
     
-
     @IBAction func startGame(_ sender: UIButton) {
     }
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    func getLastScore(){
+        db.collection("score").getDocuments() { (querySnapshot, err) in
+            if let err = err {
+                print("Error getting documents: \(err)")
+            } else {
+                for document in querySnapshot!.documents {
+                    let lastScore = document.data()["last_score"] as! Int
+                    self.start_LBL_score.text = "\(lastScore)/15"
+                }
+            }
+        }
     }
-    */
+
 
 }

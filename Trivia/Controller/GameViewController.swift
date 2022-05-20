@@ -72,7 +72,7 @@ class GameViewController: UIViewController {
             timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: false) { (timer) in
                 //  self.buttonsClickable(true)
                 
-                sender.tintColor = UIColor(named: "ProgressBarColor")
+                sender.tintColor = UIColor(named: "ButtonBackground")
                 self.updateGameProgress()
                 self.editTextGamesNumber()
                 self.initTriviaView()
@@ -162,7 +162,7 @@ class GameViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "goToResult"{
             let destinationVC = segue.destination as! ResultViewController
-            destinationVC.scoreValue = self.quizBrain.getPlayerScore()
+            destinationVC.playerScore = self.quizBrain.getPlayerScore()
             destinationVC.totalGamesNumber = self.quizBrain.getTotalGamesNumber()
             destinationVC.gameOver = self.quizBrain.getGameOver()
         }
