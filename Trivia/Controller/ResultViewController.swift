@@ -12,6 +12,7 @@ class ResultViewController: UIViewController {
     
     @IBOutlet weak var result_LBL_score: UILabel!
 
+    @IBOutlet weak var result_BTN_startover: UIButton!
     let db = Firestore.firestore()
     var playerScore: Int?
     var totalGamesNumber: Int?
@@ -21,6 +22,7 @@ class ResultViewController: UIViewController {
     @IBOutlet weak var result_LBL_gameover: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
+        result_BTN_startover.tintColor = UIColor(named: "ButtonBackground")
 
         if(gameOver){
             result_LBL_gameover.isHidden = false

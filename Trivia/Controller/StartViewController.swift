@@ -12,11 +12,12 @@ import FirebaseFirestore
 class StartViewController: UIViewController {
     let db = Firestore.firestore()
     
+    @IBOutlet weak var start_BTN_start: UIButton!
     @IBOutlet weak var start_LBL_score: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
         getLastScore()
-        
+        start_BTN_start.tintColor = UIColor(named: "ButtonBackground")
     }
     
     @IBAction func startGame(_ sender: UIButton) {
