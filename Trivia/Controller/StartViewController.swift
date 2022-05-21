@@ -17,7 +17,6 @@ class StartViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        start_BTN_start.tintColor = UIColor(named: "ButtonBackground")
         getLastScore()
     }
     

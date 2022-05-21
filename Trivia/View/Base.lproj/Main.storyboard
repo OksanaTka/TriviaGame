@@ -369,6 +369,7 @@
                                 <buttonConfiguration key="configuration" style="filled" title="Start Game!" cornerStyle="capsule">
                                     <fontDescription key="titleFontDescription" type="system" weight="semibold" pointSize="25"/>
                                     <color key="baseForegroundColor" name="ButtonTextColor"/>
+                                    <color key="baseBackgroundColor" name="ButtonBackground"/>
                                 </buttonConfiguration>
                                 <connections>
                                     <action selector="startGame:" destination="W6b-FW-FhH" eventType="touchUpInside" id="7vD-Dh-Ayp"/>
@@ -485,6 +486,7 @@
                                 <buttonConfiguration key="configuration" style="filled" title="Start Over" cornerStyle="capsule">
                                     <fontDescription key="titleFontDescription" type="system" weight="semibold" pointSize="25"/>
                                     <color key="baseForegroundColor" name="ButtonTextColor"/>
+                                    <color key="baseBackgroundColor" name="ButtonBackground"/>
                                 </buttonConfiguration>
                                 <connections>
                                     <action selector="startGame:" destination="W6b-FW-FhH" eventType="touchUpInside" id="j21-d9-Ef9"/>
@@ -535,6 +537,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
+        <segue reference="kw6-HY-Giw"/>
         <segue reference="VIX-7C-4g3"/>
     </inferredMetricsTieBreakers>
     <resources>
