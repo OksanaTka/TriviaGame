@@ -27,50 +27,49 @@ class GameViewController: UIViewController {
         //scale progressbar
         game_PB_progress.transform = game_PB_progress.transform.scaledBy(x: 1, y: 4)
         initImageBorder()
+        
+        //init dogs details in firestore
         // initQuestions()
         
+        //get data from firestore
         getDogsListFromFirestore()
-        
     }
+    
+    
     func goToResultController(){
         self.performSegue(withIdentifier: "goToResult", sender: self)
     }
     
+    //set current game number
     func editTextGamesNumber(){
         self.game_LBL_games.text = "\(self.quizBrain.getCurrentGameNumber())/\(self.quizBrain.getTotalGamesNumber())"
     }
+    
+    //set progressbar
     func updateGameProgress(){
         game_PB_progress.progress = quizBrain.getGameProgress()
     }
     
-    func buttonsClickable(_ status : Bool){
-       game_BTN_choice1.isEnabled = status
-        game_BTN_choice2.isEnabled = status
-        game_BTN_choice3.isEnabled = status
-        game_BTN_choice4.isEnabled = status
-
-    }
     
     @IBAction func onClickAnswer(_ sender: UIButton) {
         let userAnswer = sender.currentTitle
         timer.invalidate()
-    
         
-            if(userAnswer == self.quizBrain.question.rightAnswer){
-                sender.tintColor = #colorLiteral(red: 0.3411764801, green: 0.6235294342, blue: 0.1686274558, alpha: 1)
-                quizBrain.calcScore()
-            }
-            else{
-                sender.tintColor = #colorLiteral(red: 0.7450980544, green: 0.1568627506, blue: 0.07450980693, alpha: 1)
-                quizBrain.calcLife()
-                game_LBL_life.text = "x\(quizBrain.getPlayerLife())"
-            }
-            
-           // self.buttonsClickable(false)
-            
+        //check answer
+        if(userAnswer == self.quizBrain.question.rightAnswer){
+            sender.tintColor = #colorLiteral(red: 0.3411764801, green: 0.6235294342, blue: 0.1686274558, alpha: 1)
+            quizBrain.calcScore()
+        }
+        else{
+            sender.tintColor = #colorLiteral(red: 0.7450980544, green: 0.1568627506, blue: 0.07450980693, alpha: 1)
+            //decrease life
+            quizBrain.calcLife()
+            game_LBL_life.text = "x\(quizBrain.getPlayerLife())"
+        }
+        
+        //check game progress and update view
         if self.quizBrain.playGame(){
             timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: false) { (timer) in
-                //  self.buttonsClickable(true)
                 
                 sender.tintColor = UIColor(named: "ButtonBackground")
                 self.updateGameProgress()
@@ -78,15 +77,15 @@ class GameViewController: UIViewController {
                 self.initTriviaView()
             }
         }else{
+            //end game
             timer.invalidate()
             updateGameProgress()
             goToResultController()
-            timer.invalidate()
         }
-        
     }
-
     
+    // get list from firestore
+    // init view and game
     func getDogsListFromFirestore(){
         db.collection("dogs").getDocuments() { (querySnapshot, err) in
             if let err = err {
@@ -99,13 +98,11 @@ class GameViewController: UIViewController {
                 }
                 self.editTextGamesNumber()
                 self.initTriviaView()
-                
             }
         }
-        
     }
     
-    
+    // init image view
     func initImageBorder(){
         game_IMG_image.layer.masksToBounds = true
         game_IMG_image.layer.borderWidth = 3
@@ -113,22 +110,22 @@ class GameViewController: UIViewController {
         game_IMG_image.layer.cornerRadius = game_IMG_image.bounds.width / 3.5
     }
     
-    
-    
+    // init answers and image
     func initTriviaView(){
         let question = quizBrain.getNextQuestion()
+        let url = quizBrain.getCurrentDogUrl()
+        game_IMG_image.imageFrom(url: url)
         
         game_BTN_choice1.setTitle(question.answers[0], for: .normal)
         game_BTN_choice2.setTitle(question.answers[1], for: .normal)
         game_BTN_choice3.setTitle(question.answers[2], for: .normal)
         game_BTN_choice4.setTitle(question.answers[3], for: .normal)
         
-        let url = quizBrain.getCurrentDogUrl()
-        game_IMG_image.imageFrom(url: url)
+        
     }
     
     
-    
+    // set to firestore
     func initQuestions(){
         // Add a new document with a generated ID
         var ref: DocumentReference? = nil
@@ -156,9 +153,9 @@ class GameViewController: UIViewController {
             }
         }
         
-        
-        
     }
+    
+    //init variables resultViewController
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "goToResult"{
             let destinationVC = segue.destination as! ResultViewController
@@ -167,10 +164,9 @@ class GameViewController: UIViewController {
             destinationVC.gameOver = self.quizBrain.getGameOver()
         }
     }
-    
-    
 }
 
+// display image by url
 extension UIImageView{
     func imageFrom(url:URL){
         DispatchQueue.global().async { [weak self] in

@@ -31,38 +31,42 @@ struct QuizBrian {
         return rand
     }
     
+    //set dictionary
     mutating func setDogsData(firebaseData : [String:Any]){
         self.data = firebaseData
         initDogList()
     }
     
+    //init dogs list and dogs name list
     mutating func initDogList(){
         for (name, path) in data {
-            // print("The path to '\(name)' is '\(path)'.")
             let url = URL(string:path as! String)!
             let dog = Dog(name,url)
             dogList.append(dog)
             dogNameList.append(name)
         }
-        // print("dogsImages[0].url \(dogsImages[0].url)")
     }
     
+    //set next question
     mutating func setNextQuestion(){
+        //get next dog and init right answer
         currentDog = dogList[nextQuestionIndex]
         question.rightAnswer = currentDog!.name
         question.answers.append(question.rightAnswer)
         
+        //add more 3 answers
         for _ in 1...3{
             var rand = getRandomNumber(maxNumber: dogList.count)
             while (rand == nextQuestionIndex || question.answers.contains(where: { $0 == dogList[rand].name})){
                 rand = getRandomNumber(maxNumber: dogList.count)
             }
-            
             question.answers.append(dogList[rand].name)
         }
         question.answers.shuffle()
         nextQuestionIndex+=1
     }
+    
+    
     mutating func calcScore(){
         player.score += 1
     }
@@ -77,7 +81,6 @@ struct QuizBrian {
             gameOver = true
         }
     }
-    
     
     func getCurrentDogUrl() -> URL{
         return currentDog!.url
@@ -96,9 +99,9 @@ struct QuizBrian {
         return gameNumber
     }
     
+    // check player life and question number
     func playGame() ->Bool{
         let gameNumber = nextQuestionIndex
-        print("\(gameNumber) < \(dogList.count)")
         return gameNumber < dogList.count && player.life > 0
     }
     
@@ -106,11 +109,13 @@ struct QuizBrian {
         return gameOver
     }
     
+    // return progress percentage
     func getGameProgress() -> Float{
         let gameNumber = nextQuestionIndex
         return Float(gameNumber) / Float(dogList.count)
     }
     
+    //clear answers array and set next question
     mutating func getNextQuestion() -> Question{
         question.answers = []
         setNextQuestion()

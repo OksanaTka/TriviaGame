@@ -30,9 +30,7 @@ class ResultViewController: UIViewController {
             result_LBL_gameover.isHidden = true
         }
         result_LBL_score.text = "\(playerScore!) / \(totalGamesNumber!)"
-        // Do any additional setup after loading the view.
         
-    
         getLastScore()
     }
     

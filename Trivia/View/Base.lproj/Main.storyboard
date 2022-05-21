@@ -20,7 +20,7 @@
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Background" translatesAutoresizingMaskIntoConstraints="NO" id="03o-qB-pMA">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                             </imageView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tuU-Ng-6PR" customClass="RoundedCornerView" customModule="Trivia">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tuU-Ng-6PR">
                                 <rect key="frame" x="20" y="10" width="280" height="110"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="PXm-KV-9gQ">
@@ -49,7 +49,7 @@
                                             <constraint firstAttribute="height" constant="5" id="Dql-C5-t34"/>
                                         </constraints>
                                     </progressView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1/10" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qBi-oM-BtI">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1/15" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qBi-oM-BtI">
                                         <rect key="frame" x="205" y="40" width="65" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="09g-Na-Hb7"/>
@@ -90,9 +90,9 @@
                                 </userDefinedRuntimeAttributes>
                                 <variation key="default">
                                     <mask key="constraints">
+                                        <exclude reference="rJ9-iQ-t2s"/>
                                         <exclude reference="taG-O0-bCa"/>
                                         <exclude reference="xvg-DD-6pe"/>
-                                        <exclude reference="rJ9-iQ-t2s"/>
                                         <exclude reference="3Nk-rp-l8P"/>
                                         <exclude reference="4Y8-Em-pvJ"/>
                                         <exclude reference="zuZ-1I-7rW"/>
@@ -100,13 +100,13 @@
                                 </variation>
                                 <variation key="heightClass=compact-widthClass=compact">
                                     <mask key="constraints">
+                                        <exclude reference="Qtd-Od-a3U"/>
+                                        <exclude reference="oq6-Yp-ogG"/>
+                                        <include reference="rJ9-iQ-t2s"/>
                                         <exclude reference="DEl-DU-yrW"/>
                                         <exclude reference="Vjf-sq-9JM"/>
                                         <include reference="taG-O0-bCa"/>
                                         <include reference="xvg-DD-6pe"/>
-                                        <exclude reference="Qtd-Od-a3U"/>
-                                        <exclude reference="oq6-Yp-ogG"/>
-                                        <include reference="rJ9-iQ-t2s"/>
                                         <include reference="3Nk-rp-l8P"/>
                                         <include reference="4Y8-Em-pvJ"/>
                                         <exclude reference="Cer-Hu-OPF"/>
@@ -117,13 +117,13 @@
                                 </variation>
                                 <variation key="heightClass=compact-widthClass=regular">
                                     <mask key="constraints">
+                                        <exclude reference="Qtd-Od-a3U"/>
+                                        <exclude reference="oq6-Yp-ogG"/>
+                                        <include reference="rJ9-iQ-t2s"/>
                                         <exclude reference="DEl-DU-yrW"/>
                                         <exclude reference="Vjf-sq-9JM"/>
                                         <include reference="taG-O0-bCa"/>
                                         <include reference="xvg-DD-6pe"/>
-                                        <exclude reference="Qtd-Od-a3U"/>
-                                        <exclude reference="oq6-Yp-ogG"/>
-                                        <include reference="rJ9-iQ-t2s"/>
                                         <include reference="3Nk-rp-l8P"/>
                                         <include reference="4Y8-Em-pvJ"/>
                                         <exclude reference="Cer-Hu-OPF"/>
