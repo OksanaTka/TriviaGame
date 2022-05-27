@@ -537,8 +537,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="kw6-HY-Giw"/>
-        <segue reference="VIX-7C-4g3"/>
+        <segue reference="ox1-fA-EHP"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="003-boxer" width="512" height="512"/>
